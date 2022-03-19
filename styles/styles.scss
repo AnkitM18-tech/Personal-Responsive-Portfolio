@@ -194,7 +194,7 @@ section {
 .about-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding-top: 3.5rem;
+    padding-top: 4.5rem;
     padding-bottom: 5rem;
     .right-about {
         display: grid;
@@ -394,7 +394,7 @@ section {
 
 /* Portfolios */
 .port-text {
-    padding: 2rem 0;
+    padding-top: 4rem;
     text-align: center;
 }
 .portfolios {
@@ -468,6 +468,59 @@ section {
     transform: scale(1);
 }
 
+/* Blogs */
+.blogsec {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    margin-top: 6rem;
+    .blog {
+        position: relative;
+        background-color: var(--color-grey-5);
+        border-radius: 5px;
+        box-shadow: 1px 1px 20px rgba(0,0,0,.1);
+        transition: all .4s ease-in-out;
+        &:hover {
+            box-shadow: 1px 1px 20px rgba(0,0,0,.3);
+            transform: translateY(-5px);
+            transition: all .4s ease-in-out;
+            img {
+                filter: grayscale(0);
+                transform: scale(1.1);
+                box-shadow: 0px 4px 15px rgba(0,0,0,.8);
+            }
+        }
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            filter: grayscale(100%);
+            transition: all .4s ease-in-out;
+        }
+        .blog-text {
+            margin-top: -7px;
+            padding: 1.1rem;
+            border-top: 8px solid var(--color-secondary);
+            h4 {
+                font-size: 1.5rem;
+                margin-bottom: .7rem;
+                transition: all .4s ease-in-out;
+                cursor: pointer;
+                &:hover {
+                    color: var(--color-secondary);
+                }
+            }
+            p {
+                color: var(--color-grey-2);
+                line-height: 2rem;
+                padding-bottom: 1rem;
+            }
+        }
+    }
+}
+
 
 /* Independent Components */
 .btn-con {
@@ -536,7 +589,7 @@ section {
             z-index: -1;
             transform: translate(-50%,-50%);
             font-weight: 800;
-            font-size: 5.8rem;
+            font-size: 6.3rem;
         }
     }
 }
