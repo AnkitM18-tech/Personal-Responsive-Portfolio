@@ -60,26 +60,44 @@ section {
 .sec1 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgba(161,228,38,0.85);
 }
 
 .sec2 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: slateblue;
 }
 
 .sec3 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgb(146,205,90);
 }
 
 .sec4 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgb(35, 241, 241);
 }
 
 .sec5 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgb(241, 35, 35);
+}
+
+.active {
+    display: block;
+    animation: scaleAnimate 1s ease-in-out;
+    @keyframes scaleAnimate {
+        0% {
+            transform: translateY(-100%) scaleY(0);
+        }
+        100% {
+            transform: translateY(0) scaleY(1);
+        }
+    }
 }
 
 //Controls

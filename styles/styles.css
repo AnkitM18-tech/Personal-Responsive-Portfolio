@@ -65,30 +65,63 @@ section {
   display: none;
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
+  background-color: rgba(161, 228, 38, 0.85);
 }
 
 .sec2 {
   display: none;
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
+  background-color: slateblue;
 }
 
 .sec3 {
   display: none;
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
+  background-color: #92cd5a;
 }
 
 .sec4 {
   display: none;
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
+  background-color: #23f1f1;
 }
 
 .sec5 {
   display: none;
   -webkit-transform: translateY(0) scale(1);
           transform: translateY(0) scale(1);
+  background-color: #f12323;
+}
+
+.active {
+  display: block;
+  -webkit-animation: scaleAnimate 1s ease-in-out;
+          animation: scaleAnimate 1s ease-in-out;
+}
+
+@-webkit-keyframes scaleAnimate {
+  0% {
+    -webkit-transform: translateY(-100%) scaleY(0);
+            transform: translateY(-100%) scaleY(0);
+  }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1);
+            transform: translateY(0) scaleY(1);
+  }
+}
+
+@keyframes scaleAnimate {
+  0% {
+    -webkit-transform: translateY(-100%) scaleY(0);
+            transform: translateY(-100%) scaleY(0);
+  }
+  100% {
+    -webkit-transform: translateY(0) scaleY(1);
+            transform: translateY(0) scaleY(1);
+  }
 }
 
 .controls {
