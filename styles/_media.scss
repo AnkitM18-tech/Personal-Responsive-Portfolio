@@ -440,7 +440,7 @@
     }
 }
 
-@media screen and (max-width:350px) {
+@media screen and (max-width:400px) {
     .controls {
         top: auto;
         bottom: 0;
@@ -464,7 +464,7 @@
                 font-size: 2rem;
             }
             .bg-text {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
         }
     }
@@ -501,7 +501,7 @@
         .left-about {
             padding-right: 0;
             p {
-                padding-left: 0;
+                padding-left: 0 !important;
             }
             h4 {
                 text-align: center;
