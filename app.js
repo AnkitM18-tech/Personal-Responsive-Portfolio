@@ -6,6 +6,7 @@ const allSections = document.querySelector(".main-content");
 function submitForm() {
     let form = document.getElementById("form__submit");
     form.submit();
+    form.reset();
 }
 
 function pageTransitions() {
