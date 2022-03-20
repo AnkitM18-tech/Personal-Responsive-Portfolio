@@ -3,6 +3,11 @@ const sectionBtns = document.querySelectorAll(".controls");
 const sectionBtn = document.querySelectorAll(".control");
 const allSections = document.querySelector(".main-content");
 
+function submitForm() {
+    let form = document.getElementById("form__submit");
+    form.submit();
+}
+
 function pageTransitions() {
     // Click active class
     for (let i = 0; i < sectionBtn.length; i++) {
