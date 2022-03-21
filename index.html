@@ -434,10 +434,36 @@
                         <img src="img/blog1.jpg" alt="">
                         <div class="blog-text">
                             <h4>
-                                How to create your own website
+                                Binary Search Implementation
                             </h4>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat autem aliquid nihil, porro non asperiores minus veniam corporis enim laudantium.
+                                The usual way to implement binary search resembles lookong for a word in a dictionary. The search maintains an active region in the array, which initially contains all array elements. Then a number of steps is performed , each of which halves the size of the region. <br><br>At each step, the search checks the middle element of the active region. If the middle element is the target element, the search terminates. Otherwise, the search recursively continues to the left or right of the region, depending on the value of the middle element. Time Complexity -> O(logN). <br><br>
+                                int a = 0, b = n-1; <br>
+                                while (a <= b) { <br>
+                                    int k = (a+b)/2; <br>
+                                    if (array[k] == x) { <br>
+                                    // x found at index k <br>
+                                    } <br>
+                                    if (array[k] > x) b = k-1; <br>
+                                    else a = k+1; <br>
+                                } <br><br>
+                                In this implementation, the active region is a...b, and initially the region is
+                                0...n¡1. The algorithm halves the size of the region at each step, so the time
+                                complexity is O(logn). <br><br>
+                                An alternative method to implement binary search is based on an efficient way to
+                                iterate through the elements of the array. The idea is to make jumps and slow
+                                the speed when we get closer to the target element.
+                                The search goes through the array from left to right, and the initial jump
+                                length is n/2. At each step, the jump length will be halved: first n/4, then n/8,
+                                n/16, etc., until finally the length is 1. After the jumps, either the target element
+                                has been found or we know that it does not appear. <br><br> The following code implements the above idea: <br>
+                                int k = 0;<br> 
+                                for (int b = n/2; b >= 1; b /= 2) { <br>
+                                    while (k+b < n && array[k+b] <= x) k += b; <br>
+                                } <br>
+                                if (array[k] == x) { <br>
+                                    // x found at index k <br>
+                                } <br>
                             </p>
                         </div>
                     </div>
@@ -445,10 +471,35 @@
                         <img src="img/blog2.jpg" alt="">
                         <div class="blog-text">
                             <h4>
-                                How to create your own website
+                                Complexity Classes
                             </h4>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat autem aliquid nihil, porro non asperiores minus veniam corporis enim laudantium.
+                                The Following list contains common time complexities of algorithms: <br>
+                                => O(1)-> The running time of a constant-time algorithm does not depend on the
+                                input size. A typical constant-time algorithm is a direct formula that
+                                calculates the answer. <br>
+                                => O(logn)-> A logarithmic algorithm often halves the input size at each step. The
+                                running time of such an algorithm is logarithmic, because log2 n equals the
+                                number of times n must be divided by 2 to get 1. <br>
+                                => O(n<sup>1/2</sup>)-> A square root algorithm is slower than O(logn) but faster than O(n).
+                                A special property of square roots is that n<sup>1/2</sup> = n/n<sup>1/2</sup> ,so the square root lies, in some sense, in the middle of the input. <br>
+                                => O(n)-> A linear algorithm goes through the input a constant number of times. This
+                                is often the best possible time complexity, because it is usually necessary to
+                                access each input element at least once before reporting the answer. <br>
+                                => O(nlogn)-> This time complexity often indicates that the algorithm sorts the input,
+                                because the time complexity of efficient sorting algorithms is O(nlogn).
+                                Another possibility is that the algorithm uses a data structure where each
+                                operation takes O(logn) time. <br>
+                                => O(n<sup>2</sup>)-> A quadratic algorithm often contains two nested loops. It is possible to
+                                go through all pairs of the input elements in O(n<sup>2</sup>) time. <br>
+                                => O(n<sup>3</sup>)-> A cubic algorithm often contains three nested loops. It is possible to go
+                                through all triplets of the input elements in O(n<sup>3</sup>) time. <br>
+                                => O(2<sup>n</sup>)-> This time complexity often indicates that the algorithm iterates through
+                                all subsets of the input elements. For example, the subsets of {1,2,3} are phi,
+                                {1}, {2}, {3}, {1,2}, {1,3}, {2,3} and {1,2,3}. <br>
+                                => O(n!)-> This time complexity often indicates that the algorithm iterates through
+                                all permutations of the input elements. For example, the permutations of
+                                {1,2,3} are (1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1,2) and (3,2,1).
                             </p>
                         </div>
                     </div>
@@ -456,10 +507,41 @@
                         <img src="img/blog3.jpg" alt="">
                         <div class="blog-text">
                             <h4>
-                                How to create your own website
+                                Backtracking Algorithm
                             </h4>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat autem aliquid nihil, porro non asperiores minus veniam corporis enim laudantium.
+                                A backtracking algorithm begins with an empty solution and extends the
+                                solution step by step. The search recursively goes through all different ways how
+                                a solution can be constructed. <br><br>
+                                As an example, consider the problem of calculating the number of ways n
+                                queens can be placed on an nXn chessboard so that no two queens attack each
+                                other. For example, when n = 4, there are two possible solutions: <br>
+                                The problem can be solved using backtracking by placing queens to the board
+                                row by row. More precisely, exactly one queen will be placed on each row so that
+                                no queen attacks any of the queens placed before. A solution has been found
+                                when all n queens have been placed on the board. <br><br>
+                                The algorithm can be implemented as follows: <br><br>
+                                void search(int y) { <br>
+                                    if (y == n) { <br>
+                                        count++; <br>
+                                        return; <br>
+                                    } <br>
+                                    for (int x = 0; x < n; x++) { <br>
+                                        if (column[x] || diag1[x+y] || diag2[x-y+n-1]) continue; <br>
+                                        column[x] = diag1[x+y] = diag2[x-y+n-1] = 1; <br>
+                                        search(y+1); <br>
+                                        column[x] = diag1[x+y] = diag2[x-y+n-1] = 0; <br>
+                                    } <br>
+                                } <br><br>
+                                The search begins by calling search(0). The size of the board is nXn, and the
+                                code calculates the number of solutions to count.
+                                The code assumes that the rows and columns of the board are numbered from
+                                0 to n-1. When the function search is called with parameter y, it places a queen
+                                on row y and then calls itself with parameter y+1. Then, if y = n, a solution has
+                                been found and the variable count is increased by one.
+                                The array column keeps track of columns that contain a queen, and the arrays
+                                diag1 and diag2 keep track of diagonals. It is not allowed to add another queen
+                                to a column or diagonal that already contains a queen.
                             </p>
                         </div>
                     </div>
